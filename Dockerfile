@@ -8,7 +8,7 @@ WORKDIR /app
 
 # Install dependencies using npm only
 COPY package.json package-lock.json* ./
-RUN npm run build
+RUN npm ci  # ← CHANGED FROM "npm run build" TO "npm ci"
 
 # Rebuild the source code only when needed
 FROM base AS builder
