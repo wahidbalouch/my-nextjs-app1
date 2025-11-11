@@ -8,10 +8,7 @@ WORKDIR /app
 
 # Install dependencies using npm only
 COPY package.json package-lock.json* ./
-RUN \
-  if [ -f package-lock.json ]; then npm ci; \
-  else echo "package-lock.json not found." && exit 1; \
-  fi
+RUN npm run build
 
 # Rebuild the source code only when needed
 FROM base AS builder
